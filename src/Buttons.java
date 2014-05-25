@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Buttons {
 	
 	static JButton saveCoords = new JButton ("SAVE MOUSE COORDS");
-	static Dimension buttonSize = new Dimension(160, 25);
+	static Dimension buttonSize = new Dimension(170, 25);
 		
 	public static Component start(){
 		JButton start = new JButton ("START");

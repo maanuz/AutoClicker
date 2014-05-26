@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import javax.swing.*;
 
 public class GUI {
@@ -11,11 +12,11 @@ public class GUI {
 	static JTextArea yToClick = new JTextArea("0");
 	static JTextArea clickSpeed = new JTextArea("10");
 	
+	static JPanel p = new JPanel();
+	
 	public static void createGUI() {
 
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel p = new JPanel();
 		f.add(p);
 
 		p.add(Labels.xString);
@@ -57,6 +58,7 @@ public class GUI {
 		p.add(Buttons.start());
 		p.add(Labels.stopInfo);
 		
+				
 		f.setSize(220, 250);
 		f.setVisible(true);
 		f.setResizable(false);

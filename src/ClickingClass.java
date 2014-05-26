@@ -13,7 +13,15 @@ public class ClickingClass {
 		try {
 			mouseActionRobot = new Robot();
 			mouseActionRobot.mouseMove(Integer.parseInt(GUI.xToClick.getText()), Integer.parseInt(GUI.yToClick.getText()));
-			Timer mouseClickTimer = new Timer(Integer.parseInt(GUI.clickSpeed.getText()), new ActionListener() {
+			try { //first click after pressing start
+				Thread.sleep(500);
+				mouseActionRobot.mousePress(InputEvent.BUTTON1_MASK);
+				mouseActionRobot.mouseRelease(InputEvent.BUTTON1_MASK);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				Timer mouseClickTimer = new Timer(Integer.parseInt(GUI.clickSpeed.getText()), new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {

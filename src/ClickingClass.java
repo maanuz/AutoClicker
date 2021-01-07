@@ -26,19 +26,40 @@ public class ClickingClass implements ActionListener {
         e1.printStackTrace();
       }
 
-      this.mouseClickTimer = new Timer(Integer.parseInt(GUI.clickSpeed.getText()), this);
-      this.mouseClickTimer.start();
+      this.start();
     } catch (AWTException e1) {
       System.out.println("error");
     }
+  }
+
+  private void start() {
+    int interval = Integer.parseInt(GUI.clickSpeed.getText());
+
+    if (GUI.randomizeClickspeed.isSelected()) {
+      int d = (int)Math.floor(Math.random() * (interval + 1) * 0.05);
+      System.out.println(d);
+      if (Math.random() < 0.5) {
+        interval += d;
+      } else {
+        interval -= d;
+      }
+    }
+    this.mouseClickTimer = new Timer(interval, this);
+    this.mouseClickTimer.start();
   }
 
   public void actionPerformed(ActionEvent e) {
 
     if (GUI.xToClick.getText().equals(GUI.x.getText()) && GUI.yToClick.getText().equals(GUI.y.getText())) {
       //clicks mouse at coordinates
-      this.mouseActionRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-      this.mouseActionRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+      // this.mouseActionRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+      // this.mouseActionRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+      
+      // if random click speed is selected, stop and start new timer with new interval
+      if (GUI.randomizeClickspeed.isSelected()) {
+        this.mouseClickTimer.stop();
+        this.start();
+      }
     } else {
       this.mouseClickTimer.stop(); //moving mouse, stops clicking
     }

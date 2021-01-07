@@ -10,4 +10,5 @@ public class Labels {
 	static JLabel clickSpeedStr = new JLabel("Click speed: ");
 	static JLabel speedMs = new JLabel(" ms");
 	static JLabel stopInfo = new JLabel("Moving mouse will stop the clicking");
+	static JLabel randomizeClickspeed = new JLabel("Randomize click speed +-5%");
 }

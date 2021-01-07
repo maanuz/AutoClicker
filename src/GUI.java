@@ -4,10 +4,12 @@ import javax.swing.*;
 
 public class GUI {
 	static Dimension xAndYSize = new Dimension(50, 20);
+  	static Dimension buttonSize = new Dimension(170, 25);
 	static JFrame f = new JFrame("MnZ");
 	static JTextField x = new JTextField();
 	static JTextField y = new JTextField();
 	static JCheckBox allwaysTopBox = new JCheckBox();
+	static JCheckBox randomizeClickspeed = new JCheckBox();
 	static JTextArea xToClick = new JTextArea("0");
 	static JTextArea yToClick = new JTextArea("0");
 	static JTextArea clickSpeed = new JTextArea("10");
@@ -54,12 +56,16 @@ public class GUI {
 		p.add(clickSpeed);
 		p.add(Labels.speedMs);
 		
-		p.add(Buttons.saveCoords());
-		p.add(Buttons.start());
+		p.add(Labels.randomizeClickspeed);
+		p.add(randomizeClickspeed);
+		
+		ButtonSaveCoordinates bsc = new ButtonSaveCoordinates();
+		p.add(bsc.getButton());
+		ButtonStart bs = new ButtonStart();
+		p.add(bs.getButton());
 		p.add(Labels.stopInfo);
 		
-				
-		f.setSize(220, 250);
+		f.setSize(220, 280);
 		f.setVisible(true);
 		f.setResizable(false);
 	}

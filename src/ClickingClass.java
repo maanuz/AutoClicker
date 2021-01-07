@@ -52,8 +52,8 @@ public class ClickingClass implements ActionListener {
 
     if (GUI.xToClick.getText().equals(GUI.x.getText()) && GUI.yToClick.getText().equals(GUI.y.getText())) {
       //clicks mouse at coordinates
-      // this.mouseActionRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-      // this.mouseActionRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+      this.mouseActionRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+      this.mouseActionRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
       
       // if random click speed is selected, stop and start new timer with new interval
       if (GUI.randomizeClickspeed.isSelected()) {
